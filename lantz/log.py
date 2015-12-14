@@ -23,6 +23,7 @@ from logging.handlers import SocketHandler, DEFAULT_TCP_LOGGING_PORT, DEFAULT_UD
 from socketserver import (ThreadingUDPServer, DatagramRequestHandler,
                           ThreadingTCPServer, StreamRequestHandler)
 
+from colorama import Fore, Back, Style
 
 from stringparser import Parser
 
