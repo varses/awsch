@@ -15,5 +15,6 @@
 """
 
 from .powermeter1830c import PowerMeter1830c
+from .agilis import Agilis
 
-__all__ = ['PowerMeter1830c']
+__all__ = ['PowerMeter1830c', 'Agilis']
