@@ -67,3 +67,51 @@ class SG396(MessageBasedDriver):
         @rf_enable.setter
         def rf_toggle(self, value):
             self.send('ENBR{:d}'.format(value))
+
+        @Feat()
+        def frequency(self):
+            """
+            signal frequency
+            """
+            return self.query('FREQ?')
+
+        @frequency.setter
+        def frequency(self, value):
+            self.send('FREQ{:.2f}'.format(value))
+
+        @Feat()
+        def rf_pll_loop_filter_mode(self):
+            raise NotImplementedError
+
+        @rf_pll_loop_filter_mode.setter
+        def rf_pll_loop_filter_mode(self, value):
+            raise NotImplementedError
+
+        @Feat()
+        def lf_offset(self):
+            """
+            low frequency offset voltage
+            """
+            return self.query('OFSL?')
+
+        @lf_offset.setter
+        def lf_offset(self, value):
+            self.send('OFSL{:.2f}'.format(value))
+
+        @Feat()
+        def phase(self):
+            """
+            carrier phase
+            """
+            self.query('PHAS?')
+
+        @phase.setter
+        def phase(self, value):
+            self.send('PHAS{:.2f}'.format(value))
+
+        @Action()
+        def rel_phase(self):
+            """
+            sets carrier phase to 0 degrees
+            """
+            self.send('RPHS')
